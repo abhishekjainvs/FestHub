@@ -4,6 +4,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>College Profile</title>
+
+
+<style> 
+#society_events{
+	background-color:	#DCDCDC;
+
+}
+#a {
+       
+    /*transition-timing-function: ease;
+    -webkit-transition: margin-Top 3s; /* Safari 3.1 to 6.0 */
+}
+
+#a:target{
+ 
+    margin-Top:50px;
+}
+
+</style>
+<script>
+
+function jsfunction(a) {
+
+if(a=="quiz"){
+	document.getElementById("society_events").innerHTML = "Govind Ballabh Pant Engineering College (also referred to as GBPEC or, colloquially, Pant) is a public engineering college located in Okhla, Delhi, India. It was established in 2007 by the Directorate of Training and Technical Education of the Delhi Government. The college is affiliated to the Guru Gobind Singh Indraprastha University[1] in Delhi.";
+	}
+	if(a=="buniyaad"){
+		document.getElementById("society_events").innerHTML = a;
+	}
+	
+}
+</script>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="myCSS/MenuBar.css" />
@@ -62,19 +94,22 @@
 
 <!--____________________MENU BAR END________________________________-->
 
-
+<div class="container bodyContent">
 <div>&nbsp</div>
 <br>
 <br>
  <div style="width: 100%">
- <div style="width: 20%;float: right;font-size: 120%"" > College Societies:
+ <div style="width: 20%;float: right;font-size: 120%;position: fixed;right: 0px;top: 0px" > <br>&nbsp<br>&nbsp<br>&nbsp
+ College Societies:
  <br>
  <ul>
- 	<li>Quizzine</li>
- 	<li>Buniyaad</li>
+ 	<!--<li>Quizzine</li>
+ 	<li>Buniyaad</li>-->
+ 	<li><a href="#a" id="societies" onclick="jsfunction('quiz');return false;">QUIZZINE</a><br></li>
+ 	<li><a href="#a" id="societies" onclick="jsfunction('buniyaad');return false;">BUNIYAAD</a><br></li>
  </ul>
  </div>
-	<div  style="width: 80%;border-left: 0px;border-top: 0px;border-bottom: 0px;border-right: 1px; border-style: solid">
+	<div  style="width: 80%;border-left: 0px;border-top: 0px;border-bottom: 0px;border-right: 0px; border-style: solid">
 	<table >
 	
 	<tr>
@@ -88,38 +123,38 @@
 	</tr>
 
 <tr> 
-<td rowspan="2" colspan="2" style="text-align: center;font-size: 150%" >
+<td rowspan="2" colspan="2" style="text-align: left;font-size: 100%" >
 	&nbsp<br>
-	Desciption 1:
+	ADDRESS:- Okhla Industrial Estate, Okhla Phase III, New Delhi, Delhi 110020
 	<br>&nbsp
 </td>
 </tr>
 <tr></tr>
 <tr> 
-<td rowspan="2"  colspan="2" style="text-align: center;font-size: 150%" >
+<td rowspan="2"  colspan="2" style="text-align: left;font-size: 100%" >
 	&nbsp<br>
-	Desciption 2:
+	 PHONE NO.:- 011 2682 6620
 	<br>&nbsp
 </td>
 </tr>
 <tr></tr>
 <tr> 
-<td  rowspan="2" colspan="2" style="text-align: center;font-size: 150%">
+<td  rowspan="2" colspan="2" style="text-align: left;font-size: 100%">
 	&nbsp<br>
-	Desciption 3:
+	COLLEGE SITE:- <a href="http://www.gbpec.edu.in/index.php">http://www.gbpec.edu.in/index.php</a>
      <br>&nbsp
 </td>
 </tr>
 	</table> 
-<hr style="border-color: black ">
+<hr style="border-color:#D3D3D3">
 	</div>
 	</div>
 
-<div id="society events">
+<div id="society_events"  style="width: 80%">
 	
 </div>
 
-<div style="width: 80%;text-align: center;border-left: 0px;border-top: 0px;border-bottom: 0px;border-right: 1px; border-style: solid">
+<div id="a" style="width: 80%;text-align: center;border-left: 0px;border-top: 0px;border-bottom: 0px;border-right: 1px; border-style: solid">
 	<h1>FESTS</h1>
 	<button type="submit" style="font-size: 120%">
 <img src="inceptum.jpg" alt="Inceptum"/>
@@ -181,7 +216,7 @@ Drama-Theatrical fest
 </div>
 
 <!--signup content end-->
-
+</div>
 
 
 </body>
