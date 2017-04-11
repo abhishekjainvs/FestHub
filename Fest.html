@@ -1,17 +1,31 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- first two css files are used for tab n fesdisplay-->
-<link rel="stylesheet" href="festcss.css"/>
-<link rel="stylesheet" href="tabl.css"/>
-<!--from read page these stylesheet taken-->
+<title>FEST DETAILS</title>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="myCSS/MenuBar.css" />
 <link rel="stylesheet" type="text/css" href="myCSS/readPageDsgn.css" />
+<!-- first two css files are used for tab n festdisplay-->
+<link rel="stylesheet" href="festcss.css"/>
 
-	<title>FEST DETAILS</title>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="myJS/common.js"></script>
+<style >
+	#opened{
+		display: block;
+	}
+</style>
+<script type="text/javascript">
+function openAbout() {
+           document.getElementById("open").innerHTML="<h3>Event Details</h3><p>National seminar on Material And Applications</p><p>For more Information please visit</p><button>College Website Link</button><p><button>Contacts</button></p>";
+        }
+        window.onload = openAbout;	
+
+</script>
+	
 </head>
 <body>
 
@@ -50,11 +64,16 @@
 
 
 <!--____________________MENU BAR END________________________________-->
+<div class="container bodyContent">
 <div id="first">
-  <h2 id="cc">National Seminar on Material and applications, K Ramakrishnan College of <br>Technology,National Seminar, Trichy, 30th March 2017</h2>
+  <h2 id="cc">National Seminar on Material and applications, K Ramakrishnan College of Technology,National Seminar, Trichy, 30th March 2017</h2>
 
  </div>
   <hr COLOR="red" WIDTH="90%" SIZE="10" noshade>
+
+<div style="width: 100%">
+  <!--beginning of left div-->
+<div style="float:left;width:80%">
  <div id="second">Event Name:  National Seminar on Material and applications
 <br><br>
 Category: National Seminar
@@ -65,16 +84,21 @@ Location:  Trichy, Tamil Nadu
 <br><br>
 Event: Dates 30th March 2017
 </div>
-<div class="tab">
-	<button class="tablinks" onclick="openfest(event,'About')">&nbsp &nbsp &nbsp &nbsp ABOUT &nbsp &nbsp&nbsp &nbsp   </button>
-	<button class="tablinks" onclick="openfest(event,'Event List')">&nbsp&nbsp &nbsp &nbsp EVENTS LIST &nbsp &nbsp&nbsp&nbsp</button>
-    <button class="tablinks" onclick="openfest(event,'Register')">&nbsp&nbsp &nbsp &nbsp REGISTER &nbsp &nbsp&nbsp&nbsp</button>
-    <button class="tablinks" onclick="openfest(event,'Contacts')">&nbsp&nbsp &nbsp &nbsp CONTACT &nbsp&nbsp</button>
-    <button class="tablinks" onclick="openfest(event,'Other Events')">&nbsp&nbsp &nbsp &nbsp Other Events &nbsp&nbsp</button>
+<div class="tab" >
+	<button  class="tablinks" onclick="openfest('About')"> &nbsp&nbsp&nbsp&nbsp ABOUT &nbsp&nbsp&nbsp&nbsp    </button>
+	<button class="tablinks" onclick="openfest('Event List')"> &nbsp&nbsp&nbsp&nbsp EVENTS LIST &nbsp&nbsp&nbsp&nbsp </button>
+    <button class="tablinks" onclick="openfest('Register')"> &nbsp&nbsp&nbsp&nbsp REGISTER &nbsp&nbsp&nbsp&nbsp </button>
+    <button class="tablinks" onclick="openfest('Contacts')"> &nbsp&nbsp&nbsp&nbsp CONTACT &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </button>
+    <!--<button class="tablinks" onclick="openfest(event,'Other Events')">&nbsp&nbsp &nbsp &nbsp Other Events &nbsp&nbsp</button>-->
 </div>
+<div id="open"></div>
 <!--About Details-->
-     <div id="About" class="tabcontent"><h3>Event Details</h3><p>National seminar on Material And Applications</p><p>For more Information please visit</p>
-     <button>College Website Link</button><p><button>Contacts</button></p></div>
+
+     <div id="About" class="tabcontent" >
+     <h3>Event Details</h3><p>National seminar on Material And Applications</p><p>For more Information please visit</p>  
+     <button>College Website Link</button><p><button>Contacts</button></p>
+     </div>
+     
 <!--Event List  Details-->
      <div id="Event List" class="tabcontent"><p>Events List in National Seminar on Material and applications, Trichy:
                                            National seminar on Material And Applications</p>
@@ -95,22 +119,33 @@ Event: Dates 30th March 2017
         <!--Contact Details-->
         <div id="Contacts" class="tabcontent"><p>Providing contacts</p></div>
    <!--Other Events Details -->
-   <div id="Other Events" class="tabcontent"><p>Providing List of other events</p></div>
-     
+   <!--<div id="Other Events" class="tabcontent"><p>Providing List of other events</p></div>-->
+     </div>
 <script>
-function openfest(evt, cityName) {
+function openfest(cityName) {
+	document.getElementById("open").style.display="none";
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
-    tablinks = document.getElementsByClassName("tablinks");
+    /*tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+    }*/
     document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+    //evt.currentTarget.className += " active";
 }
 </script>
+</div>
+<!--end of left div and start of right div-->
+<div style="float: right;background-color: #C8C8C8;width: 20%"><p>Similar Events list</p>
+   <li><a href="">Event 1</a></li>
+   <li><a href="">Event 2</a></li>
+   <li><a href="">Event 3</a></li>
+   <li><a href="">Event 4</a></li>
+</div>
+<!--end of right div-->
+</div>
 </body>
 </html>
