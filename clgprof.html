@@ -7,9 +7,27 @@
 
 
 <style> 
-#society_events{
-	background-color:	#DCDCDC;
-
+.myline
+{
+	height: 1px;
+	width: 100%;
+	background-color: #777;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: -20px;
+}
+/*.myline2{
+	height: 100%;
+	width: 2%;
+	float: left;
+	background-color: #777;
+}*/
+.mylist > li
+{
+	display: block;
+	width: 100%;
+	
+	margin-left: -20px;
 }
 #a {
        
@@ -21,14 +39,61 @@
  
     margin-Top:50px;
 }
+.bl{
+ background-color: #00ff80;
+ font-size: 150%;
+ font-weight: bold;
+ border-top-left-radius: 21px;
+border-bottom-left-radius: 21px;
+border: none; 
+}
+.br{
+	background-color: #00ff80;
+margin-left: -8px;
+font-size: 150%;
+font-weight: bold;
+border-top-right-radius: 21px;
+border-bottom-right-radius: 21px;
+border: none;
 
+}
+.br:hover
+{
+	background-color: #777;
+	cursor: pointer;
+	border: none;
+}
+
+.br:hover{
+	cursor: pointer;
+}
+.soc{
+	width: 20%;
+	float: left;
+	font-size: 150%;
+   
+
+    background-color: #f5f5f0;
+
+}
+.soc:hover{
+	background-color: #d6d6c2;
+}
+
+.socdiv:hover{
+	cursor: pointer;
+
+}
+
+
+}
 </style>
 <script>
 
 function jsfunction(a) {
 
 if(a=="quiz"){
-	document.getElementById("society_events").innerHTML = "Govind Ballabh Pant Engineering College (also referred to as GBPEC or, colloquially, Pant) is a public engineering college located in Okhla, Delhi, India. It was established in 2007 by the Directorate of Training and Technical Education of the Delhi Government. The college is affiliated to the Guru Gobind Singh Indraprastha University[1] in Delhi.";
+	document.getElementById("society_events").innerHTML = "Govind Ballabh Pant Engineering College (also referred to as GBPEC or, colloquially, Pant) is a public engineering college located in Okhla, Delhi, India. It was established in 2007 by the Directorate of Training and Technical Education of the Delhi Government. The college is affiliated to the Guru Gobind Singh Indraprastha University[1] in Delhi. In the above diagram, resource 1 and resource 2 have single instances. There is a cycle R1–>P1–>R2–>P2. So Deadlock is Confirmed. If there are multiple instances of resources:Detection of cycle is necessary but not sufficient condition for deadlock detection, in this case system may or may not be in deadlock varies according to different situations.Deadlock RecoveryTraditional operating system such as Windows doesn’t deal with deadlock recovery as it is time and space consuming process. Real time operating systems use Deadlock recovery.";
 	}
 	if(a=="buniyaad"){
 		document.getElementById("society_events").innerHTML = a;
@@ -73,12 +138,7 @@ if(a=="quiz"){
 </div>
 
 <div class="area3">
-<!-- <ul class="nav nav-pills list">
-<li><a href="readpage.html"><i class="fa fa-file-text-o"></i> <span class="bar">Read</span></a></li>
-<li><a href="Answer.html"><i class="fa fa-pencil"></i> <span class="bar">Answer</span></a><li>
-<li><a href="#"><i class="fa fa-bell-o"></i> <span class="bar">Notifications</span></a></li>
-<li><span id="log_btn" onclick="displayLogin()">LogIn/SignUp</span></li>
-</ul> -->
+
 <ul class="list">
 <li><a href="readpage.html"><i class="fa fa-file-text-o"></i> <span class="bar">Read</span></a></li>
 <li><a href="Answer.html"><i class="fa fa-pencil"></i> <span class="bar">Answer</span></a><li>
@@ -99,21 +159,12 @@ if(a=="quiz"){
 <br>
 <br>
  <div style="width: 100%">
- <div style="width: 20%;float: right;font-size: 120%;position: fixed;right: 0px;top: 0px" > <br>&nbsp<br>&nbsp<br>&nbsp
- College Societies:
- <br>
- <ul>
- 	<!--<li>Quizzine</li>
- 	<li>Buniyaad</li>-->
- 	<li><a href="#a" id="societies" onclick="jsfunction('quiz');return false;">QUIZZINE</a><br></li>
- 	<li><a href="#a" id="societies" onclick="jsfunction('buniyaad');return false;">BUNIYAAD</a><br></li>
- </ul>
- </div>
-	<div  style="width: 80%;border-left: 0px;border-top: 0px;border-bottom: 0px;border-right: 0px; border-style: solid">
+ 
+	<div  style="width: 80%;float: left;">
 	<table >
 	
 	<tr>
-	<td rowspan="8" colspan="2">
+	<td rowspan="5" colspan="2">
 
 	<img src="gbpec.jpg">
 		</td>
@@ -139,23 +190,62 @@ if(a=="quiz"){
 </tr>
 <tr></tr>
 <tr> 
-<td  rowspan="2" colspan="2" style="text-align: left;font-size: 100%">
+<td colspan="2" style="text-align: center;font-size: 150%"> Followers: 2134</td>
+<td  colspan="2" style="text-align: left;font-size: 100%">
 	&nbsp<br>
-	COLLEGE SITE:- <a href="http://www.gbpec.edu.in/index.php">http://www.gbpec.edu.in/index.php</a>
+	COLLEGE SITE:- <a href="http://www.gbpec.edu.in/index.php">http://www.gbpec.edu.in/index.php </a>
      <br>&nbsp
 </td>
-</tr>
-	</table> 
-<hr style="border-color:#D3D3D3">
-	</div>
-	</div>
 
+</tr>
+<tr> <td style="text-align: center;"> <!-- <input type="button" name="follow"  value="FOLLOW" style="font-size: 110%;background-color: #7bc043"> -->
+	<div >
+		<button class="bl" disabled="true">
+			+1
+		</button>
+		
+		<button class="br">
+			FOLLOW	
+			</button>
+	</div>
+</td></tr>
+	</table> 
+<hr style="border-color:#D3D3D3;margin-left:20%;margin-right: 20% ">
+
+	</div>
+<!--Loop Start-->	
+<div class="soc" > 
+ 
+ <br>
+ <ul class="mylist" style="list-style-type: none">
+<div>College Societies:</div>
+ 	<div class="myline"></div>
+ 	<li ><div class="socdiv" onclick="jsfunction('quiz')" >
+ 		<span><img src="Gbpec.jpg" width="40%" height="40%" ></span>
+ 		<span>Quizzine </span>
+ 	</div></li>
+ 	<div class="myline"></div>
+ 	<li><div class="socdiv" onclick="jsfunction('buniyaad')">
+ 		<span><img src="riwaayat.jpg" width="40%" height="40%" ></span>
+ 		<span>Buniyaad </span>
+ 	</div></li>
+ 	<div class="myline"></div>
+ 	<li><div class="socdiv" onclick="jsfunction('buniyaad')">
+ 		<span><img src="riwaayat.jpg" width="40%" height="40%" ></span>
+ 		<span>Buniyaad </span>
+ 	</div></li>
+ 	<div class="myline"></div>
+ </ul>
+ </div>
+ <!--Loop end -->
+ </div>
 <div id="society_events"  style="width: 80%">
 	
+	 
 </div>
-
-<div id="a" style="width: 80%;text-align: center;border-left: 0px;border-top: 0px;border-bottom: 0px;border-right: 1px; border-style: solid">
-	<h1>FESTS</h1>
+<hr style="border-color:#D3D3D3;margin-left:15%;margin-right: 35% ">
+<div id="a" style="width: 80%;text-align: center">
+	<h1>FESTS/EVENTS</h1>
 	<button type="submit" style="font-size: 120%">
 <img src="inceptum.jpg" alt="Inceptum"/>
 <br/>
@@ -168,7 +258,7 @@ Inceptum-Annual Tech Fest
 Drama-Theatrical fest
 </button>
 <br>
-<hr style="border-color: black ">
+
 </div>
 <!--signup content start-->
 
