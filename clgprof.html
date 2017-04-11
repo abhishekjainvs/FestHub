@@ -7,6 +7,15 @@
 
 
 <style> 
+#society_events{
+       transition-timing-function: ease;
+       -webkit-transition: opacity 4s;
+	opacity: 0;
+
+}
+#so_clg{
+	text-align: center;
+}
 .myline
 {
 	height: 1px;
@@ -92,11 +101,33 @@ border: none;
 
 function jsfunction(a) {
 
-if(a=="quiz"){
+/*
 	document.getElementById("society_events").innerHTML = "Govind Ballabh Pant Engineering College (also referred to as GBPEC or, colloquially, Pant) is a public engineering college located in Okhla, Delhi, India. It was established in 2007 by the Directorate of Training and Technical Education of the Delhi Government. The college is affiliated to the Guru Gobind Singh Indraprastha University[1] in Delhi. In the above diagram, resource 1 and resource 2 have single instances. There is a cycle R1–>P1–>R2–>P2. So Deadlock is Confirmed. If there are multiple instances of resources:Detection of cycle is necessary but not sufficient condition for deadlock detection, in this case system may or may not be in deadlock varies according to different situations.Deadlock RecoveryTraditional operating system such as Windows doesn’t deal with deadlock recovery as it is time and space consuming process. Real time operating systems use Deadlock recovery.";
 	}
 	if(a=="buniyaad"){
 		document.getElementById("society_events").innerHTML = a;
+	}*/
+	if(a=="quiz"){
+
+               document.getElementById("society_events").style.opacity = "1";
+	        document.getElementById("college_socity").style.display="block";
+	        document.getElementById("myImg").src="Gbpec.jpg";
+	        document.getElementById("society_name").innerHTML="Quizzine";
+	        document.getElementById("socity_desc").innerHTML = "<br>Govind Ballabh Pant Engineering College (also referred to as GBPEC or, colloquially, Pant) is a public engineering college located in Okhla, Delhi, India. It was established in 2007 by the Directorate of Training and Technical Education of the Delhi Government. The college is affiliated to the Guru Gobind Singh Indraprastha University[1] in Delhi.";
+	        document.getElementById("contacts").innerHTML="<br><br>Contact name1::7896541278<br>Contact name2::9874563217"
+               var x = document.getElementById("myHR");
+               x.style.display = "block";
+           }
+	if(a=="buniyaad"){
+              document.getElementById("society_events").style.opacity = "1";
+              document.getElementById("college_socity").style.display="block";
+              document.getElementById("myImg").src="Riwaayat.jpg";
+              document.getElementById("society_name").innerHTML="BUNNIYAAD";
+              document.getElementById("socity_desc").innerHTML = "<br>Govind Ballabh Pant Engineering College (also referred to as GBPEC or, colloquially, Pant) is a public engineering college located in Okhla, Delhi, India. ";
+              document.getElementById("contacts").innerHTML="<br><br>Contact name1::7896541278<br>Contact name2::9874563217"
+             var x = document.getElementById("myHR");
+              x.style.display = "block";
+		
 	}
 	
 }
@@ -239,10 +270,25 @@ if(a=="quiz"){
  </div>
  <!--Loop end -->
  </div>
-<div id="society_events"  style="width: 80%">
+
+<div id="society_events" style="width: 80%">
+     <div id="college_socity" style="display: none;">
+
+	    <div  id="leftside" style="float: left;width: 20%">
+	 <img id="myImg" src="" width="120" height="220" >
+	    </div>
+	 <div id="rightside" style="width: 100%">
+	     <div id="society_name"  style="text-align: center;font-size: 200%;margin-right: 200px">
+		     </div>  
+		  <div id="socity_desc" style="font-size: 100%;text-align: left;"></div>
+		  <div id="contacts" style="font-size: 100%;text-align: left;"></div>
+	    </div>
+
+ </div>
 	
 	 
 </div>
+<br><br>
 <hr style="border-color:#D3D3D3;margin-left:15%;margin-right: 35% ">
 <div id="a" style="width: 80%;text-align: center">
 	<h1>FESTS/EVENTS</h1>
