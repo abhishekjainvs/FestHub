@@ -10,10 +10,51 @@
 <!-- first two css files are used for tab n festdisplay-->
 <link rel="stylesheet" href="festcss.css"/>
 
+<!--signup content-->
+<link rel="stylesheet" href="signStyle.css"/>
+  <script type="text/javascript" src="signJS.js"></script>
+<!--signup content-->
+
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="myJS/common.js"></script>
 <style >
+
+.myline
+{
+  height: 1px;
+  width: 100%;
+  background-color: #777;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: -20px;
+}
+
+.mylist > li
+{
+  display: block;
+  width: 100%;
+  
+  margin-left: -20px;
+}
+
+.soc{
+  width: 20%;
+  float: left;
+  font-size: 150%;
+   
+
+    background-color: #f5f5f0;
+
+}
+.soc:hover{
+  background-color: #d6d6c2;
+}
+
+.socdiv:hover{
+  cursor: pointer;
+
+}
 	#opened{
 		display: block;
 	}
@@ -24,10 +65,15 @@ function openAbout() {
         }
         window.onload = openAbout;	
 
+
+
 </script>
 	
 </head>
 <body>
+
+<div id="shadow"></div>
+<span id="close" onclick="hideLogin()"><i class="fa fa-close"></i></span>
 
 <!--____________________MENU BAR START________________________________-->
 <div class="outer">
@@ -69,11 +115,12 @@ function openAbout() {
   <h2 id="cc">National Seminar on Material and applications, K Ramakrishnan College of Technology,National Seminar, Trichy, 30th March 2017</h2>
 
  </div>
-  <hr COLOR="red" WIDTH="90%" SIZE="10" noshade>
+  <hr  WIDTH="90%" SIZE="10" noshade>
 
 <div style="width: 100%">
+<div id="eventimage" style="float: left;width: 5%"><img id="myImg" src="Gbpec.jpg"></div>
   <!--beginning of left div-->
-<div style="float:left;width:80%">
+<div style="float:left;width:75%">
  <div id="second">Event Name:  National Seminar on Material and applications
 <br><br>
 Category: National Seminar
@@ -85,8 +132,8 @@ Location:  Trichy, Tamil Nadu
 Event: Dates 30th March 2017
 </div>
 <div class="tab" >
-	<button  class="tablinks" onclick="openfest('About')"> &nbsp&nbsp&nbsp&nbsp ABOUT &nbsp&nbsp&nbsp&nbsp    </button>
-	<button class="tablinks" onclick="openfest('Event List')"> &nbsp&nbsp&nbsp&nbsp EVENTS LIST &nbsp&nbsp&nbsp&nbsp </button>
+	<button  class="tablinks" onclick="openfest('About')"> &nbsp&nbsp ABOUT &nbsp&nbsp     </button>
+	<button class="tablinks" onclick="openfest('Event List')">  &nbsp&nbspEVENTS LIST&nbsp&nbsp  </button>
     <button class="tablinks" onclick="openfest('Register')"> &nbsp&nbsp&nbsp&nbsp REGISTER &nbsp&nbsp&nbsp&nbsp </button>
     <button class="tablinks" onclick="openfest('Contacts')"> &nbsp&nbsp&nbsp&nbsp CONTACT &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </button>
     <!--<button class="tablinks" onclick="openfest(event,'Other Events')">&nbsp&nbsp &nbsp &nbsp Other Events &nbsp&nbsp</button>-->
@@ -136,16 +183,104 @@ function openfest(cityName) {
     document.getElementById(cityName).style.display = "block";
     //evt.currentTarget.className += " active";
 }
+
+function jsfunction(a){
+  if(a=="event1"){
+    document.getElementById("myImg").src="Gbpec.jpg";
+  }
+  if(a=="event2"){
+    document.getElementById("myImg").src="Riwaayat.jpg";
+  }
+}
 </script>
+
 </div>
+
 <!--end of left div and start of right div-->
+<!--
 <div style="float: right;background-color: #C8C8C8;width: 20%"><p>Similar Events list</p>
    <li><a href="">Event 1</a></li>
    <li><a href="">Event 2</a></li>
    <li><a href="">Event 3</a></li>
    <li><a href="">Event 4</a></li>
-</div>
+</div>   -->
 <!--end of right div-->
+
+<!--Loop Start--> 
+<div class="soc" > 
+ 
+ <br>
+ <ul class="mylist" style="list-style-type: none">
+<div>Similar Events:</div>
+<marquee direction="up">
+  <div class="myline"></div>
+  <li ><div class="socdiv" onclick="jsfunction('event1')" >
+    <span><img src="Gbpec.jpg" width="40%" height="40%" ></span>
+    <span>Event 1 </span>
+  </div></li>
+  <div class="myline"></div>
+  <li><div class="socdiv" onclick="jsfunction('event2')">
+    <span><img src="riwaayat.jpg" width="40%" height="40%" ></span>
+    <span>Event 2 </span>
+  </div></li>
+  <div class="myline"></div>
+  <li><div class="socdiv" onclick="jsfunction('event3')">
+    <span><img src="riwaayat.jpg" width="40%" height="40%" ></span>
+    <span>Event 3 </span>
+  </div></li>
+  
+  <div class="myline"></div>
+  </marquee>
+ </ul>
+ </div>
+ <!--Loop end -->
+
+<!--signup content start-->
+
+<div class="mainWrap" id="mainWrap_id">
+  <div class="wrap">
+    <div class="wrap_0">
+     <div class="b1" id="b1_id" onclick="signUp()">SignUp</div>
+     <div class="b2" id="b2_id" onclick="logIn()">LogIn</div>      
+
+
+      <div id="signup">
+        <h1 style="margin-top: 90px;">SignUp here</h1>
+
+      <form>
+        <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="text" placeholder="First Name*"/><br/>
+        <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="text" placeholder="Last Name*"/><br/>
+        <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="email" placeholder="Email Address*"/><br/>
+        <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="password" placeholder="Set a password*"/><br/>
+        <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="password" placeholder="Confirm password*"/><br/>
+        <select class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)">
+         <option value="">---Select your College---</option>
+         <option value="G.B Pant Govt. Engineering College">G.B Pant Govt. Engineering College</option>
+         <option value="College2">College2</option>
+         <option value="College3">College3</option>
+        </select><br/>
+        <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="text" placeholder="Mobile*"/>
+        <input class="sub" type="submit" value="Register"/>
+      </form>
+      </div>
+
+      <div id="login">
+        <h1 style="margin-top: 90px;">LogIn here</h1>
+
+        <form>
+           <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="email" placeholder="Email Id*"/><br/>
+         <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="password" placeholder="Password*"/><br/>
+         <a href="" class="forgot">Forgot Password</a>
+         <input class="sub" id="inp1" type="submit" value="Log In"/>
+        </form>
+      </div>
+
+    </div>
+    
+  </div>
+</div>
+
+<!--signup content end-->
 </div>
 </body>
 </html>
