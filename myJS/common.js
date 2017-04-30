@@ -18,7 +18,7 @@
 	}
 	function changeWidth(x)
 	{
-		 x.style.width = "460px";
+		 x.style.width = "350px";
 	}
 	function widthNormal(x)
 	{

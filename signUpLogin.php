@@ -1,4 +1,11 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+	<title>signUp</title>
+	<link rel="stylesheet" href="signStyle.css"/>
+	<script type="text/javascript" src="signJS.js"></script>
+</head>
+<body>
 <div class="mainWrap" id="mainWrap_id">
   <div class="wrap">
     <div class="wrap_0">
@@ -32,7 +39,7 @@
         <form method="post">
            <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="email"  name="user" placeholder="Email Id*"/><br/>
 	       <input class="inp" id="inp1" onfocus="borderChange(this)" onblur="borderNormal(this)" type="password"  name="pass" placeholder="Password*"/><br/>
-	       <!--<a href="../e-commerce\forgetpass.php" class="forgot">Forgot Password</a>-->
+	       <a href="../e-commerce\forgetpass.php" class="forgot">Forgot Password</a>
 	       <input class="sub" id="inp1" type="submit"   name="subs" value="Log In"/>
         </form>
       </div>
@@ -119,3 +126,5 @@ if(isset($_REQUEST["reg"]))
 ?>
 <!--end-->
 
+</body>
+</html>

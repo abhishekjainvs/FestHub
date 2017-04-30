@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,6 +12,13 @@
 <link rel="stylesheet" type="text/css" href="myCSS/MenuBar.css" />
 <link rel="stylesheet" type="text/css" href="myCSS/readPageDsgn.css" />
 
+<!-- slider files -->
+<link href="sliderCss/owl.carousel.css" rel="stylesheet"/>
+<link href="sliderCss/owl.theme.css" rel="stylesheet"/>
+<!-- slider files -->
+
+
+
 <!--signup content-->
 <link rel="stylesheet" href="signStyle.css"/>
 	<script type="text/javascript" src="signJS.js"></script>
@@ -15,6 +26,37 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="myJS/common.js"></script>
+
+<style>
+    #owl-demo .item{
+      margin: 3px;
+    }
+    #owl-demo .item img{
+      display: block;
+      width: 100%;
+      
+    }
+    #news_iframe_scroll
+    {
+    	border: 1px solid #e5e5e5;
+    	box-shadow: 0 0 2px 2px #777;
+    	min-height: 300px;
+    	position: fixed;
+    }
+    .news_scroll-title
+    {
+    	background-color: #999;
+    	color: #f2f2f2;
+    	font-size: 15px;
+    	padding: 5px;
+    }
+    .news_frame
+    {
+    	height: 530px;
+    }
+</style>
+
 <style>
 #log_btn
 {
@@ -26,10 +68,6 @@
 	padding-right: 5px;
 	display: block;
 	cursor: pointer;
-}
-#log_btn:hover
-{
-	background-color: #e0e0e0;
 }
 #mainWrap_id
 {
@@ -63,112 +101,141 @@
 	z-index: 2500;
 }
 </style>
-<script type="text/javascript">
-	function displayLogin()
-	{
-		var myObj = document.getElementById("mainWrap_id");
-		var back = document.getElementById("shadow");
-		var closeObj = document.getElementById("close");
-		back.style.display = "block";
-		closeObj.style.display = "block";
-		myObj.style.display = "block";
-	}
-	function hideLogin()
-	{
-		var myObj = document.getElementById("mainWrap_id");
-		var back = document.getElementById("shadow");
-		var closeObj = document.getElementById("close");
-		back.style.display = "none";
-		closeObj.style.display = "none";
-		myObj.style.display = "none";
-	}
-</script>
+
 </head>
 
 <body>
 <div id="shadow"></div>
 <span id="close" onclick="hideLogin()"><i class="fa fa-close"></i></span>
-<div class="outer">
-<!--header-->
-<div class="container">
 
-<div class="area1">
-<a href="" style="color:#b92b27;text-decoration:none;">LOGO</a>
-</div>
+<!--____________________MENU BAR START________________________________-->
+<?php
 
-<div class="area2">
-<input type="text" placeholder="    Ask or Search" class="search_box" />
-<a href="" class="ask_link">Ask Question</a>
-</div>
+if(isset($_SESSION["user"]))
+{	
+ include 'menu_bar-log.php'; 
+}
+else
+{
+ include 'menu_bar.php'; 
+}
+?>
 
-<div class="area3">
-<ul class="nav nav-pills list">
-<li><a href="readpage.html"><i class="fa fa-file-text-o"></i> <span class="bar">Read</span></a></li>
-<li><a href="Answer.html"><i class="fa fa-pencil"></i> <span class="bar">Answer</span></a><li>
-<li><a href="#"><i class="fa fa-bell-o"></i> <span class="bar">Notifications</span></a></li>
-<li><span id="log_btn" onclick="displayLogin()">LogIn/SignUp</span></li>
-</ul>
-</div>
-<div class="clearfix"></div>
+<!--____________________MENU BAR END________________________________-->
 
-</div>
-</div>
+<div class="container bodyContent">
 
-<div class="container">
 
-<div class="side1">
-<div class="s1cnt1">
-Feeds<a href="#" class="s1lnr">Edit</a>
-</div>
-
-<div class="s1cnt2">
-<button type="button" class="s1btr">Top Stories</button>
-</div>
-
-<div class="s1cnt3">
-<i class="fa fa-hand-spock-o"></i>Trending Now
-</div>
-<!--loop start-->
-<div class="s1cnt4">
-<b style="color:#337ab7">&bull;&nbsp;</b><a href="#" class="s1cnt4lnr">Tesla Announces Model 3</a>
-</div>
-
-<div class="s1cnt4">
-<b style="color:#337ab7">&bull;&nbsp;</b><a href="#" class="s1cnt4lnr">Batman vs Superman:<br />Dawn of Justice</a>
-</div>
-<!--loop end-->
-</div>
 
 <div class="gap1">
 </div>
 
 <div class="side2">
+
+<!-- SLIDER CONTENT START -->
+
+<!-- slider files -->
+<script src="sliderJs/jquery-1.9.1.min.js"></script>
+<script src="sliderJs/bootstrap-collapse.js"></script>
+    <script src="sliderJs/bootstrap-transition.js"></script>
+    <script src="sliderJs/bootstrap-tab.js"></script>
+<script src="sliderJs/owl.carousel.js"></script>
+    <script src="sliderJs/prettify.js"></script>
+	  <script src="sliderJs/application.js"></script>
+<!-- slider files -->
+
+
+
+<!-- most boosted fests as sliders-->
+<?php
+	/*			
+				$con=mysqli_connect("localhost","root","","festhub");
+				$res=mysqli_query($con,"select * from `fest` order by `boost` desc");
+				
+				while($val=mysqli_fetch_array($res))
+			{
+			echo"
+			
+<div id='owl-demo'>
+    <div class='item'><a href='fest.php?cata=$val[0]'><img src='$val[12]' height='300'/></a></div>
+    </div>
+			";
+			}*/
+?>
+
+<div id="owl-demo">
+    <div class="item"><a href='fest.php?cata=3'><img src="sliderImages/1.jpg" height="300"/></a></div>
+    <div class="item"><a href='fest.php?cata=6'><img src="sliderImages/2.jpg" height="300"/></a></div>
+    <div class="item"><a href='fest.php?cata=4'><img src="sliderImages/3.jpg" height="300"/></a></div>
+    <div class="item"><a href='fest.php?cata=1'><img src="sliderImages/4.jpg" height="300"/></a></div>
+    <div class="item"><a href='fest.php?cata=5'><img src="sliderImages/5.jpg" height="300"/></a></div>
+  </div>
+<!--end-->
+
+
+  <script>
+
+
+    $(document).ready(function() {
+     
+      $("#owl-demo").owlCarousel({
+     
+          autoPlay: 3000, //Set AutoPlay to 3 seconds
+     
+          items :1,
+          itemsDesktop : [1199,3],
+          itemsDesktopSmall : [979,3]
+     
+      });
+     
+    });
+
+
+  </script>
+
+<!-- SLIDER CONTENT END -->
+
+
 <div class="s2cnt1">
 Top Fests For You
 </div>
 
-<div class="s1cnt5">
+<div class="s1cnt5" style="width:100%">
 
 
-<div class="ques">
-<h3><a href="viewQues.html" class="t2ln"><b>Which is the best place to travel for a girl, as a first time traveler?</b></a></h3>
+
+<!--fest listing test with cata start-->
+<?php
+				$i=0;
+				$con=mysqli_connect("localhost","root","","festhub");
+				$res=mysqli_query($con,"select *,`fest_priority`+`boost` as 'abhi' from `fest` ORDER BY (`abhi`) desc;");
+			while($val=mysqli_fetch_array($res))
+			{
+				$i++;
+				if($i<10)
+			
+				echo"
+				<div style='width:20%; float: left; text-align: center'>
+				<img src='$val[12]' width='100px' height='100px'></img>
+				</div>
+				<div style='width:80%; float: left;'>
+				<div class='ques'>
+				<h3><a href='fest.php?cata=$val[0]' class='t2ln'><b>$val[1]</b></a></h3>
 </div>
 
-<div class="clearfix"></div>
-<div class="s1cnt5c">
-If you're looking for travel within India-
+<div class='s1cnt5c'>
+$val[3]</div></div>
+			";
+			}
+			
+?>		
+<!-- end-->				
 
-Try kerela or north east
 
-Both of these states have literacy next to 100% and the reason for mentioning literacy here is that they have low crime rates against women which is the major concern with travelling alone. Both of these states are nature's paradise as well with beautiful and clean forests.
 
-If you're looking for international travel-
 
-There's no country beating Japan there. SAFEST for women. In my one year time span, I never heard a single case against women. NEVER. You'll love the people, the warm welcome, the places and ofcourse Disneyland to the say the least.  
+
 </div>
-
-</div>
-
 
 <!--loop end-->
 </div>
@@ -179,41 +246,18 @@ There's no country beating Japan there. SAFEST for women. In my one year time sp
 </div>
 
 <div class="side3">
-<div class="s3cnt1">
-Update Your Profile <a href="#" class="s3lnr">Next</a>
-</div>
 
-<div class="s3cnt2">
-
- <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="70"
-  aria-valuemin="0" aria-valuemax="100" style="width:70%">
-  </div>
+<!-- START SCROLLING NEWS WINDOW SAMPLE -->
+<div id="news_iframe_scroll">
+<div class="news_scroll-title">
+News and Updates<br>
 </div>
+<iframe class="news_frame" name="NewsIFrame" src="news_scroll.php" frameborder="0" scrolling="no"></iframe>
+</div>
+<!-- END SCROLLING NEWS WINDOW SAMPLE -->
 
 </div>
-<div class="s3cnt3">
-Where have you studied?
-</div>
 
-<div class="s3cnt4">
-<input type="text" style="width:100%" placeholder="Add Education" />
-</div>
-
-<div class="s3cnt5">
-<!--place a loop here to display req DIVs-->
-<div class="cntnt">
-<!-- write image path-->
-<span style="float:left"><img src="IMG_20150427_214234.jpg" alt="" style="height:30px;width:30px;border-radius:3px;" /></span>
-
-<!--write topic name-->
-<span style="float:left;padding-left:10px;"><div><b>ABC School</b><br />
-<!--Add bio link-->
-<a href="" class="bio_link link_hover">Add Bio</a></div></span>
-</div><!--loop braces will end here-->
-</div>
-
-</div>
 
 <div class="clearfix"></div>
 </div>
@@ -221,5 +265,6 @@ Where have you studied?
 <!--signup content start-->
 <?php include 'signUpContent.php'; ?>
 <!--signup content end-->
+
 </body>
 </html>

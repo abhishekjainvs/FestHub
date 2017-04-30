@@ -1,4 +1,24 @@
 
+<!--to constraint user to login first start-->
+
+<?php
+session_start();
+//$upass=$_SESSION["pass"];
+if(isset($_SESSION["user"]))
+{
+	$uid=$_SESSION["user"];
+	echo"hi";
+}
+else
+{
+	echo"bye";
+	header('location: signUpLogin.php');
+	//exit();
+}
+
+?>
+<!-- end -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -56,13 +76,16 @@
 border-bottom-left-radius: 21px;
 border: none; 
 }
-.br{
-	background-color: #00ff80;
+*[role="button"]{
+	background-color: #00d2ff;
 margin-left: -8px;
 font-size: 150%;
 font-weight: bold;
 border-top-right-radius: 21px;
 border-bottom-right-radius: 21px;
+border-top-left-radius: 21px;
+border-bottom-left-radius: 21px;
+
 border: none;
 
 }
@@ -77,7 +100,7 @@ border: none;
 	cursor: pointer;
 }
 .soc{
-	width: 20%;
+	width: 25%;
 	float: left;
 	font-size: 150%;
    
@@ -97,12 +120,14 @@ border: none;
 
 }
 </style>
-<script>
+
+<!--script is cut from here into php code to the societies section in right-->
+<!--<script>
 
 function jsfunction(a) {
 
 /*
-	document.getElementById("society_events").innerHTML = "Govind Ballabh Pant Engineering College (also referred to as GBPEC or, colloquially, Pant) is a public engineering college located in Okhla, Delhi, India. It was established in 2007 by the Directorate of Training and Technical Education of the Delhi Government. The college is affiliated to the Guru Gobind Singh Indraprastha University[1] in Delhi. In the above diagram, resource 1 and resource 2 have single instances. There is a cycle R1–>P1–>R2–>P2. So Deadlock is Confirmed. If there are multiple instances of resources:Detection of cycle is necessary but not sufficient condition for deadlock detection, in this case system may or may not be in deadlock varies according to different situations.Deadlock RecoveryTraditional operating system such as Windows doesn’t deal with deadlock recovery as it is time and space consuming process. Real time operating systems use Deadlock recovery.";
+	document.getElementById("society_events").innerHTML = "Govind Ballabh Pant Engineering College (also referred to as GBPEC or, colloquially, Pant) is a public engineering college located in Okhla, Delhi, India. It was established in 2007 by the Directorate of Training and Technical Education of the Delhi Government. The college is affiliated to the Guru Gobind Singh Indraprastha
 	}
 	if(a=="buniyaad"){
 		document.getElementById("society_events").innerHTML = a;
@@ -131,7 +156,10 @@ function jsfunction(a) {
 	}
 	
 }
-</script>
+</script>-->
+<!-- end -->
+
+
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="myCSS/MenuBar.css" />
@@ -150,37 +178,27 @@ function jsfunction(a) {
 
 <body>
 
+
+
+
+
 <div id="shadow"></div>
 <span id="close" onclick="hideLogin()"><i class="fa fa-close"></i></span>
 
 <!--____________________MENU BAR START________________________________-->
 
-<div class="outer">
-<!--header-->
-<div class="container">
 
-<div class="area1">
-<a href="" style="color:#f5f5f5;text-decoration:none;">LOGO</a>
-</div>
+<?php
 
-<div class="area2">
-<input type="text" placeholder="    Search here" class="search_box" id="search_box_id" onfocus="changeWidth(this)" onblur="widthNormal(this)" />
-<a href="" class="ask_link">Search</a>
-</div>
-
-<div class="area3">
-
-<ul class="list">
-<li><a href="readpage.html"><i class="fa fa-file-text-o"></i> <span class="bar">Read</span></a></li>
-<li><a href="Answer.html"><i class="fa fa-pencil"></i> <span class="bar">Answer</span></a><li>
-<li><a href="#"><i class="fa fa-bell-o"></i> <span class="bar">Notifications</span></a></li>
-<li><span id="log_btn" onclick="displayLogin()">LogIn/SignUp</span></li>
-</ul>
-</div>
-<div class="clearfix"></div>
-
-</div>
-</div>
+if(isset($_SESSION["user"]))
+{	
+ include 'menu_bar-log.php'; 
+}
+else
+{
+ include 'menu_bar.php'; 
+}
+?>
 
 
 <!--____________________MENU BAR END________________________________-->
@@ -191,55 +209,98 @@ function jsfunction(a) {
 <br>
  <div style="width: 100%">
  
-	<div  style="width: 80%;float: left;">
+	<div  style="width: 75%;float: left;">
 	<table >
 	
-	<tr>
-	<td rowspan="5" colspan="2">
 
-	<img src="gbpec.jpg">
+	
+	
+	<!--college details listing start-->
+	
+	<?php
+	if($_GET["cat"])
+		{
+			$v=$_GET["cat"];
+			$con=mysqli_connect("localhost","root","","festhub");
+			$res=mysqli_query($con,"select * from `college` where `col_id`='$v'");
+			
+			while($val=mysqli_fetch_array($res))
+			{
+		echo"
+		
+	<tr>
+	<td rowspan='5' colspan='2'>
+	<img src='$val[7]' width=200px height=200px>
 		</td>
-	<td colspan="3" style="text-align: center;font-size: 300%">
-	G. B. Pant Government Engineering College</td>
+	<td colspan='3' style='text-align: center;font-size: 300%'>
+	$val[1]</td>
 
 	</tr>
 
 <tr> 
-<td rowspan="2" colspan="2" style="text-align: left;font-size: 100%" >
+<td rowspan='2' colspan='2' style='text-align: left;font-size: 100%;padding-left:3%;' >
+	<br>&nbsp
 	&nbsp<br>
-	ADDRESS:- Okhla Industrial Estate, Okhla Phase III, New Delhi, Delhi 110020
+	ADDRESS:- $val[4]
 	<br>&nbsp
 </td>
 </tr>
 <tr></tr>
 <tr> 
-<td rowspan="2"  colspan="2" style="text-align: left;font-size: 100%" >
+<td rowspan='2'  colspan='2' style='text-align: left;font-size: 100%;padding-left:3%;' >
 	&nbsp<br>
-	 PHONE NO.:- 011 2682 6620
+	 PHONE NO.:- $val[5]
 	<br>&nbsp
 </td>
 </tr>
 <tr></tr>
 <tr> 
-<td colspan="2" style="text-align: center;font-size: 150%"> Followers: 2134</td>
-<td  colspan="2" style="text-align: left;font-size: 100%">
+<td colspan='2' style='text-align: center;font-size: 150%'> Followers: $val[3]</td>
+<td  colspan='2' style='text-align: left;font-size: 100%;padding-left:3%;'>
 	&nbsp<br>
-	COLLEGE SITE:- <a href="http://www.gbpec.edu.in/index.php">http://www.gbpec.edu.in/index.php </a>
+	COLLEGE SITE:- <a href='$val[6]'>$val[6] </a>
      <br>&nbsp
 </td>
 
 </tr>
-<tr> <td style="text-align: center;"> <!-- <input type="button" name="follow"  value="FOLLOW" style="font-size: 110%;background-color: #7bc043"> -->
+<tr> <td style='text-align: center;'> <!-- <input type='button' name='follow'  value='FOLLOW' style='font-size: 110%;background-color: #7bc043'> -->
 	<div >
-		<button class="bl" disabled="true">
+	
+	<!-- +1 dont want-->
+	
+		<!--<button class='bl' disabled='true'>
 			+1
 		</button>
+	
+	
+		<a href='follow.php?cata=$val[0]' role='button' class='br'>FOLLOW</a>
+		-->";
 		
-		<button class="br">
-			FOLLOW	
-			</button>
+		
+		$res1=mysqli_query($con,"select * from `follow` where `col_id`='$v' and `user_id`='$uid'");
+		
+		if($val1=mysqli_fetch_array($res1))
+		{
+			echo"<button role='button'><a href='unfollow.php?cata=$val[0]'>UNFOLLOW</a></button>";
+		}
+		else
+		{
+			echo"<button role='button'><a href='follow.php?cata=$val[0]'>FOLLOW</a></button>";
+		}
+		
+		
+	echo"	
 	</div>
 </td></tr>
+		";
+		}
+		}
+		?>
+		
+		<!-- end -->
+		
+		
+		
 	</table> 
 <hr style="border-color:#D3D3D3;margin-left:20%;margin-right: 20% ">
 
@@ -251,63 +312,135 @@ function jsfunction(a) {
  <ul class="mylist" style="list-style-type: none">
 <div>College Societies:</div>
  	<div class="myline"></div>
- 	<li ><div class="socdiv" onclick="jsfunction('quiz')" >
- 		<span><img src="Gbpec.jpg" width="40%" height="40%" ></span>
- 		<span>Quizzine </span>
- 	</div></li>
- 	<div class="myline"></div>
- 	<li><div class="socdiv" onclick="jsfunction('buniyaad')">
- 		<span><img src="riwaayat.jpg" width="40%" height="40%" ></span>
- 		<span>Buniyaad </span>
- 	</div></li>
- 	<div class="myline"></div>
- 	<li><div class="socdiv" onclick="jsfunction('buniyaad')">
- 		<span><img src="riwaayat.jpg" width="40%" height="40%" ></span>
- 		<span>Buniyaad </span>
- 	</div></li>
+		
+		
+		
+		<!-- college societies display start-->
+		<?php
+		if($_GET["cat"])
+		{
+			$v=$_GET["cat"];
+	
+		$con=mysqli_connect("localhost","root","","festhub");
+			$res=mysqli_query($con,"select * from `society` where `col_id`='$v'");
+			
+			
+			while($val=mysqli_fetch_array($res))
+			{
+		
+		echo"
+		
+		<div class='myline'></div>
+		<li ><div class='socdiv' onclick=\"jsfunction('$val[5]','$val[1]','$val[2]','$val[4]','$val[3]')\" >
+		<span><img src='$val[5]' width='40%' height='15%' ></span>
+ 		<span>$val[1] </span>
+		</div>
+		<script>
+
+function jsfunction(img,name,desc,org,con) {
+	
+               document.getElementById('society_events').style.opacity = '1';
+	        document.getElementById('college_socity').style.display='block';
+	        document.getElementById('myImg').src=img;
+	        document.getElementById('society_name').innerHTML=name;
+	        document.getElementById('socity_desc').innerHTML='<br>'+desc;
+	        document.getElementById('org_name').innerHTML = '<br>'+org;
+	        document.getElementById('contacts').innerHTML='<br>'+con;
+               var x = document.getElementById('myHR');
+               x.style.display = 'block';
+           
+}
+</script></li>";
+ 			}
+		}
+		?>
+		<!-- end-->
+		
  	<div class="myline"></div>
  </ul>
  </div>
  <!--Loop end -->
  </div>
 
-<div id="society_events" style="width: 80%">
+<div id="society_events" style="width: 75%">
      <div id="college_socity" style="display: none;">
 
-	    <div  id="leftside" style="float: left;width: 20%">
-	 <img id="myImg" src="" width="120" height="220" >
+	    <div  id="leftside" style="float: left;width: 30%;">
+	 <img id="myImg" src="" width="80%" height="30%" >
 	    </div>
 	 <div id="rightside" style="width: 100%">
 	     <div id="society_name"  style="text-align: center;font-size: 200%;margin-right: 200px">
 		     </div>  
 		  <div id="socity_desc" style="font-size: 100%;text-align: left;"></div>
+		  <div id="org_name" style="font-size: 100%;text-align: left;"></div>
 		  <div id="contacts" style="font-size: 100%;text-align: left;"></div>
-	    </div>
-
- </div>
-	
-	 
+	 </div>
 </div>
+</div>
+
 <br><br>
 <hr style="border-color:#D3D3D3;margin-left:15%;margin-right: 35% ">
-<div id="a" style="width: 80%;text-align: center">
+
+<div id="a" style="width: 75%;text-align: center; height:100%;">
 	<h1>FESTS/EVENTS</h1>
-	<button type="submit" style="font-size: 120%">
-<img src="inceptum.jpg" alt="Inceptum"/>
-<br/>
-Inceptum-Annual Tech Fest
-</button>
-&nbsp &nbsp
-<button type="submit" style="font-size: 120%">
-<img src="Riwaayat.jpg" alt="Riwaayat"/>
-<br/>
-Drama-Theatrical fest
-</button>
-<br>
+	
+	
+	
+	<!-- college societies display start-->
+		<?php
+		if($_GET["cat"])
+		{
+			$v=$_GET["cat"];
+	
+		$con=mysqli_connect("localhost","root","","festhub");
+			$res=mysqli_query($con,"select * from `fest` where `col_id`='$v'");
+			
+			
+			while($val=mysqli_fetch_array($res))
+			{
+		
+		echo"
+		<div style='width:33%; float:left;margin-Top:5%'>
+	<a href='fest.php?cata=$val[0]' style='font-size: 120%'><img src='$val[12]' alt='Inceptum' width='80%' height='30%' /><br/>
+$val[1]</a></div>";
+ 			}
+		}
+		?>
+		
+		<?php
+		if($_GET["cat"])
+		{
+			$v=$_GET["cat"];
+	
+		$con=mysqli_connect("localhost","root","","festhub");
+			$res=mysqli_query($con,"select * from `society` where `col_id`='$v'");
+			
+			while($val=mysqli_fetch_array($res))
+			{
+				
+			$res1=mysqli_query($con,"select * from `soc_eve` where `soc_id`='$val[0]'");
+		
+			while($val1=mysqli_fetch_array($res1))
+			{
+				
+		echo"
+		<div style='width:33%; float:left;margin-Top:5%'>
+	<a href='#' style='font-size: 120%'><img src='$val1[2]' alt='Inceptum' width='80%' height='30%' /><br/>
+$val1[1]</a></div>";
+ 			}
+		}
+		}
+		?>
+		
+		
 
 </div>
+		
+		<!-- end-->
+		
+<br>
 <!--signup content start-->
-
+<!--
 <div class="mainWrap" id="mainWrap_id">
   <div class="wrap">
     <div class="wrap_0">
@@ -349,7 +482,10 @@ Drama-Theatrical fest
     </div>
     
   </div>
-</div>
+</div>-->
+<!--signup content start-->
+
+<?php include 'signUpContent.php'; ?>
 
 <!--signup content end-->
 </div>

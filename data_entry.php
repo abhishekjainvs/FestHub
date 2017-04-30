@@ -9,7 +9,7 @@ if($_SESSION["admin"])
 }
 else
 {
-	echo"<script language>'javascript'> alert('You will have to login first.')</script>";
+	echo"<script language='javascript'> alert('You will have to login first.')</script>";
 	
 	header("location:admin_login.php");
 }
@@ -102,6 +102,26 @@ $con=mysqli_connect("localhost","root","","festhub");
 ?>
 	
 <!--<input type="text" name="cid1" placeholder="college id" required</td>-->
+</tr>
+
+<tr>
+<td>Fest Location</td>
+<td><input type="text" name="floc" placeholder="fest location" required></td>
+</tr>
+
+<tr>
+<td>Fest Date</td>
+<td><input type="text" name="fdate" placeholder="fest date" required></td>
+</tr>
+
+<tr>
+<td>Organizer's Contact</td>
+<td><input type="text" name="ocon" placeholder="organizer's contact" required></td>
+</tr>
+
+<tr>
+<td>Organizer's Name</td>
+<td><input type="text" name="oname" placeholder="organizer's name" required></td>
 </tr>
 
 <tr>
@@ -363,6 +383,10 @@ if(isset($_REQUEST["sub2"]))
 	$ft=$_REQUEST["ftype"];
 	$fd=$_REQUEST["fdesc"];
 	$ci=$_REQUEST["cid1"];
+	$fl=$_REQUEST["floc"];
+	$fd=$_REQUEST["fdate"];
+	$oc=$_REQUEST["ocon"];
+	$on=$_REQUEST["oname"];
 	$rl=$_REQUEST["rlink"];
 	$url2="fest_img/".$_FILES["filetoupload"]["name"];
 	
@@ -385,7 +409,7 @@ if(isset($_REQUEST["sub2"]))
 	echo $query;
 	*/
 	
-	mysqli_query($con,"insert into `fest`(`fest_name`,`fest_type`,`fest_desc`,`col_id`,`reg_link`,`fest_img`) values('$fn','$ft','$fd','$ci','$rl','$url2')");
+	mysqli_query($con,"insert into `fest`(`fest_name`,`fest_type`,`fest_desc`,`col_id`,`fest_loc`,`fest_date`,`fest_org_name`,`fest_org_contact`,`reg_link`,`fest_img`) values('$fn','$ft','$fd','$ci','$fl','$fd','$on','$oc','$rl','$url2')");
 }
 
 
@@ -401,13 +425,18 @@ if(isset($_REQUEST["display2"]))
 	<th>Fest Description</th>
 	<th>College Id</th>
 	<th>Boost</th>
+	<th>Fest Priority</th>
+	<th>Fest Location</th>
+	<th>Fest Date</th>
+	<th>Fest Organizer Name</th>
+	<th>Fest Organizer Contact</th>
 	<th>Register Link</th>
 	<th>Fest Image</th>
 	</tr>";
 	while($val=mysqli_fetch_array($res))
 	{
 		echo"<tr>";
-		for($i=0;$i<8;$i++)
+		for($i=0;$i<13;$i++)
 			{
 				echo"<td>$val[$i]</td>";
 			}

@@ -1,21 +1,37 @@
 #first{
-    margin-top: 100px;
+    margin-top: 7.5%;
     margin-left: 20%
 }
 #second{
-margin-left: 30%;
+margin-left: 0%;
 }
 
 #cc{
     border-bottom: 30px;
+	font-size: 300%;
+	text-align: left;
 }
+*[role="button"]{
+	background-color: #00d2ff;
+margin-left: -40px;
+font-size: 170%;
+font-weight: bold;
+border-top-right-radius: 21px;
+border-bottom-right-radius: 21px;
+border-top-left-radius: 21px;
+border-bottom-left-radius: 21px;
+
+border: none;
+
+}
+
 div.tab {
    margin-top: 30px;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
-    width:70%;
-    margin-left:20%;
+    width:100%;
+    margin-left:0%;
 
 }
 
@@ -43,13 +59,31 @@ div.tab button.active {
 
 /* Style the tab content */
 .tabcontent {
+    display: block;
+    
+    border: 1px solid #ccc;
+    border-top: none;
+    float: left;
+    width:100%;
+    margin-left:0%;
+}
+.tabcontent1 {
     display: none;
     
     border: 1px solid #ccc;
     border-top: none;
     float: left;
-    width:70%;
-    margin-left:20%;
+    width:100%;
+    margin-left:0%;
+}
+.tabcontent2 {
+    display: none;
+    
+    border: 1px solid #ccc;
+    border-top: none;
+    float: left;
+    width:100%;
+    margin-left:0%;
 }
 #open{
     display: block;
