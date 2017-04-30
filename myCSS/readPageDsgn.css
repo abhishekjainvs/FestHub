@@ -1,33 +1,27 @@
-.side1
-{
-	width:14%;
-	float:left;
-	padding-top:150px;
-	position:static;
-}
+
 .gap1
 {
 	float:left;
-	padding-top:150px;
+	padding-top:75px;
 	width:3%;
 }
 .side2
 {
-	width:60%;
+	width:67%;
 	float:left;
-	padding-top:150px;
+	padding-top:75px;
 }
 .gap2
 {
 	float:left;
-	padding-top:150px;
+	padding-top:75px;
 	width:3%;
 }
 .side3
 {
 	float:left;
-	padding-top:150px;
-	width:20%;
+	padding-top:75px;
+	width:27%;
 }
 .s1cnt1
 {
