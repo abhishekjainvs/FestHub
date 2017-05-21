@@ -19,16 +19,3 @@ Technologies Used-
 4)pHp.
 
 
-<h2>Screenshots:</h2>
-
-<img src="Screenshots/Screen_1.png" alt="Screen 1"   />
-
-<img src="Screenshots/Screen_2.png" alt="Screen 2"   />
-
-<img src="Screenshots/Screen_3.png" alt="Screen 3"   />
-
-<img src="Screenshots/Screen_4.png" alt="Screen 4"   />
-
-<img src="Screenshots/Screen_5.png" alt="Screen 5"   />
-
-<img src="Screenshots/Screen_6.png" alt="Screen 6"   />
