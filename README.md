@@ -21,15 +21,19 @@ Technologies Used-
 <h2>SCREENSHOTS<h2>
 
 <img src="Screenshots/Screenshot (38).png">
-
+<br><hr>
 
 <img src="Screenshots/Screenshot (39).png">
 
+<br><hr>
 
 <img src="Screenshots/Screenshot (40).png">
 
+<br><hr>
 
 <img src="Screenshots/Screenshot (41).png">
 
+<br><hr>
 <img src="Screenshots/Screenshot (44).png">
 
+<hr>
