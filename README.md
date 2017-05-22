@@ -18,4 +18,6 @@ Technologies Used-
 3)JAVASCRIPT
 4)pHp.
 
+<h2>SCREENSHOTS<h2>
 
+<img src="Screenshots/Screenshot (38).png">
